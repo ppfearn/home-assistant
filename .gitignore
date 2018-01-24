@@ -1,8 +1,8 @@
-*
+/*
 !*.yaml
 !scenes
 !.gitignore
-!www
-!custom_components
+!/www
+!/custom_components
 secrets.yaml
 known_devices.yaml
