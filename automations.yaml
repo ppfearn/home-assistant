@@ -1,1 +1,13 @@
-[]
+# Turns on lights 1 hour before sunset if people are home
+# and if people get home between 16:00-23:00
+  - alias: 'Rule 1 Light on in the evening'
+    trigger:
+      # Prefix the first line of each trigger configuration
+      # with a '-' to enter multiple
+      - platform: sun
+        event: sunset
+        offset: '-01:00:00'
+    action:
+      service: notify.notify
+      data:
+        message: 'Paulus left the house'

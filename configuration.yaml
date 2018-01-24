@@ -123,6 +123,8 @@ zone:
   - name: Work
     latitude: 53.793776
     longitude: -1.546300
+    radius: 100
+    icon: mdi:worker
 
   # This will override the default home zone
   - name: Home
@@ -142,3 +144,8 @@ ifttt:
 #  action:
 #    service: ifttt.trigger
 #    data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
+
+switch:
+  - platform: tplink
+    host: 192.168.1.10
+    enable_leds: true

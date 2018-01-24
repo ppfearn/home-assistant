@@ -1,0 +1,9 @@
+'1516826803170':
+  alias: test push notification
+  sequence:
+  - after: sunset
+    condition: sun
+  - data:
+      event: TestHA_Trigger
+      value1: sunset ping
+    service: ifttt.trigger
