@@ -1,0 +1,144 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 53.756580
+  longitude: -1.502370
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 31
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+hive:
+  username: pdfearn@gmail.com
+  password: 88cAstlelodge
+
+device_tracker:
+  - platform: gpslogger
+
+device_tracker 2:
+  - platform: nmap_tracker
+    hosts: 192.168.1.0/24
+    exclude:
+      - 192.168.1.1
+      - 192.168.1.27
+      - 192.168.1.180
+      - 192.168.1.136
+      - 192.168.1.162
+      - 192.168.1.113
+      - 192.168.1.117
+      - 192.168.1.198
+      - 192.168.1.231
+      - 192.168.1.185
+      - 192.168.1.64
+      - 192.168.1.209
+      - 192.168.1.194
+      - 192.168.1.86
+      - 192.168.1.128
+      - 192.168.1.149
+      - 192.168.1.44
+      - 192.168.1.132
+      - 192.168.1.152
+      - 192.168.1.254
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+camera:
+  - platform: ffmpeg
+    input: rtsp://192.168.1.136:554/11
+    name: front door
+
+camera 2:
+  - platform: ffmpeg
+    input: rtsp://192.168.1.162:554/11
+    name: hallway
+
+media_player:
+  - platform: kodi
+    host: 192.168.1.27
+
+zone:
+  - name: Work
+    latitude: 53.793776
+    longitude: -1.546300
+
+  # This will override the default home zone
+  - name: Home
+    latitude: 53.756495
+    longitude: -1.502429
+    radius: 100
+    icon: mdi:home
+
+ifttt:
+  key: dzk_YWqPRC9sEz9ctpiKB5
+
+#automation:
+#  alias: Startup Notification
+#  trigger:
+#    platform: homeassistant
+#    event: start
+#  action:
+#    service: ifttt.trigger
+#    data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
