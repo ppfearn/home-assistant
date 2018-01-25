@@ -149,3 +149,16 @@ switch:
   - platform: tplink
     host: 192.168.1.10
     enable_leds: true
+
+# Example configuration.yaml entry
+switch RF:
+  - platform: rpi_rf
+    gpio: 17
+    switches:
+      hallway_and_living_room_piano_light:
+        code_on: 2046031
+        code_off: 2046023
+      living_room_light:
+        #pulselength: 200
+        code_on: 2046027
+        code_off: 2046019

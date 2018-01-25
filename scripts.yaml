@@ -7,3 +7,15 @@
       event: TestHA_Trigger
       value1: sunset ping
     service: ifttt.trigger
+'1516893225395':
+  alias: Switch on
+  sequence:
+  - data:
+      entity_id: hallway_and_living_room_piano_light
+    service: switch.turn_on
+'1516893243149':
+  alias: Switch on
+  sequence:
+  - data:
+      entity_id: hallway_and_living_room_piano_light
+    service: switch.turn_on
