@@ -1,2 +1,44 @@
-  tracker:
-  - sun.sun
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.family
+    - group.indoors
+    - group.livingroom
+    - group.bedroom
+    - group.office
+    - group.weather
+
+indoors:
+  name: Indoor Climate
+  view: yes
+  icon: mdi:thermometer
+  entities:
+    - climate.living_room
+    - sensor.living_room_thermostat_hvac_state
+    - sensor.living_room_thermostat_humidity
+
+lights:
+  name: Lights
+  icon: mdi:lightbulb-on
+  view: yes
+  entities:
+    - group.hue
+    - group.all_switches
+media:
+  view: yes
+  name: Media
+  icon: mdi:television-classic
+  entities:
+    - light.br1
+    - light.br2
+    - light.brcl1
+    - light.lr1  
+family:
+  name: Family
+  view: yes
+  icon: mdi:account-multiple
+  entities:
+    - device_tracker.dad_smith
+    - device_tracker.mom_smith

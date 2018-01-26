@@ -18,6 +18,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
+  themes: !include themes.yaml
 
 # Enables configuration UI
 config:
@@ -66,7 +67,7 @@ tts:
 # Cloud
 cloud:
 
-group: !include groups.yaml
+#group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 

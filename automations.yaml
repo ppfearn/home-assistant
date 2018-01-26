@@ -10,4 +10,13 @@
     action:
       service: notify.notify
       data:
-        message: 'Paulus left the house'
+        message: 'The sun will set in 1 hour'
+  - alias: 'Set theme at startup'
+    initial_state: 'on'
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: dark_theme
